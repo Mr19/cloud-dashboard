@@ -3,7 +3,7 @@
 
 # Author
 
-The author is Arnaud Desclouds <arnaud.software@heig-vd.ch>, that project was developped in the context of a Bachelor thesis.
+The author is Arnaud Desclouds <arnaud.software@use.startmail.com>, that project was developped in the context of a Bachelor thesis.
 
 # Abstract
 
