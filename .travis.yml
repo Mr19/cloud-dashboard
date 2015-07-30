@@ -1,0 +1,17 @@
+sudo: required
+language: python
+python:
+  - "3.2"
+  - "3.3"
+  - "3.4"
+  - "3.5.0b3"
+  - "3.5-dev"
+# solves boto AuthFailure
+before_install:
+  - sudo apt-get update -qq
+  - sudo apt-get install -y ntp
+install:
+  - pip install -r requirements.txt
+script:
+  - python app/manage.py test aws_account.tests
+  - python app/manage.py test dashboard.tests

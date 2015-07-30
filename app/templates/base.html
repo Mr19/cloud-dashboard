@@ -1,0 +1,134 @@
+{#The MIT License (MIT)#}
+{##}
+{#Copyright (c) 2015 Haute École d'Ingénierie et de Gestion du Canton de Vaud#}
+{##}
+{#Permission is hereby granted, free of charge, to any person obtaining a copy#}
+{#of this software and associated documentation files (the "Software"), to deal#}
+{#in the Software without restriction, including without limitation the rights#}
+{#to use, copy, modify, merge, publish, distribute, sublicense, and/or sell#}
+{#copies of the Software, and to permit persons to whom the Software is#}
+{#furnished to do so, subject to the following conditions:#}
+{##}
+{#The above copyright notice and this permission notice shall be included in all#}
+{#copies or substantial portions of the Software.#}
+{##}
+{#THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR#}
+{#IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,#}
+{#FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE#}
+{#AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER#}
+{#LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,#}
+{#OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE#}
+{#SOFTWARE.#}
+
+{#__author__ = 'Arnaud Desclouds <arnaud.software@use.startmail.com>'#}
+
+{% extends 'djfrontend/base.html' %}
+{% load djfrontend %}
+{% load staticfiles %}
+{% load activeurl %}
+
+
+{#    <title>Dashboard Template for Bootstrap</title>#}
+{% block head_css %}
+    <!-- Bootstrap core CSS -->
+    {% djfrontend_twbs_css %}
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="{% static "css/dashboard.css" %}"/>
+    <link rel="stylesheet"
+          href="{% static "django_tables2/themes/paleblue/css/screen.css" %}"/>
+{% endblock %}
+
+{% block head_js %}
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+{% endblock %}
+
+{% block body_content %}
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed"
+                        data-toggle="collapse" data-target="#navbar"
+                        aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Cloud Dashboard</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/aws-accounts/?update_resources=true"><span
+                            class="glyphicon glyphicon-refresh"></span>
+                        Resources
+                        updated: {{ aws_user.resources_last_updated | timesince }}
+                        ago</a>
+                    </li>
+                    <li>
+                        <a href="/aws-accounts/?update_prices=true"><span
+                                class="glyphicon glyphicon-refresh"></span>
+                            Prices
+                            updated: {{ aws_user.prices_last_updated | timesince }}
+                            ago</a>
+                    </li>
+                    <li><a href="/aws-accounts/">AWS Accounts</a></li>
+                    <li><a href="/logout/">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3 col-md-2 sidebar">
+                {% activeurl %}
+                    <ul class="nav nav-sidebar">
+                        <li><a href="/aws-accounts/">AWS Accounts</a></li>
+                        <li><a href="/ec2amis/">EC2 AMIs</a></li>
+                        <li><a href="/ec2elasticips/">EC2 Elastic IPs</a></li>
+                        <li><a href="/ec2instances/">EC2 Instances</a></li>
+                        <li><a href="/ec2keypairs/">EC2 Keypairs</a></li>
+                        <li><a href="/ec2loadbalancers/">EC2 Load Balancers</a>
+                        </li>
+                        <li><a href="/ec2securitygroups/">EC2 Security
+                            Groups</a>
+                        </li>
+                        <li><a href="/ec2snapshots/">EC2 Snapshots</a></li>
+                        <li><a href="/ec2tags/">EC2 Tags</a></li>
+                        <li><a href="/ec2volumes/">EC2 Volumes</a></li>
+                    </ul>
+                {% endactiveurl %}
+            </div>
+            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                <h1 class="page-header">
+                    {% block page_header %}{% endblock %}</h1>
+
+                <div class="row placeholders">
+                    {% block placeholders %}
+                    {% endblock %}
+                </div>
+
+                {% block section_title %}{% endblock %}
+
+                {% block body %}{% endblock %}
+                <div id="content">
+                    {% block content %}{% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    {% djfrontend_twbs_js %}
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="{% static "js/ie10-viewport-bug-workaround.js" %}"></script>
+
+{% endblock %}
