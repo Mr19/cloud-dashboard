@@ -26,15 +26,17 @@ You also need a PostgreSQL database with the name `cloud_dashboard_database`, a 
 
 # Heroku
 
-To deploy on Heroku you need to change Change `DEVELOPMENT = True` to `DEVELOPMENT = False` in `settings.py`.
+To deploy on Heroku you need an Heroku account an the Heroku toolbelt.
 
-- Create a Git repository: `git init` and add the app to it: `git add .` and `git commit -m "Deployment"`.
+You need to change `DEVELOPMENT = True` to `DEVELOPMENT = False` in `settings.py`.
+
+- Create a Git repository: `git init` and add the app to it: `git add .` and `git commit -m "Deploy"`.
 - Create an Heroku app: `heroku create`
 - Add a PostgreSQL database: `heroku addons:create heroku-postgresql:hobby-dev` and Redis To Go addon: `heroku addons:create redistogo`
--  Push `git push heroku master`
--  `heroku ps:scale web=1 worker=1`
--  `heroku run python app/manage.py migrate`
--  `heroku open`
+-  Push to Heroku: `git push heroku master`
+-  Scale dynos: `heroku ps:scale web=1 worker=1`
+-  Migrate schemas: `heroku run python app/manage.py migrate`
+-  Open browser to the created app: `heroku open`
 
 # Informations
 
@@ -47,8 +49,8 @@ You can see the build status on the badge under the title.
 
 The code is published under the MIT license found in the [LICENSE](./app/LICENSE) file with the exception of the following files:
 
-- The file `scrape.py` is published under another MIT license found in [LICENSE-SCRAPER](./app/LICENSE-SCRAPER).
+- The file `scrape.py` is published under the MIT license found in [LICENSE-SCRAPER](./app/LICENSE-SCRAPER).
 
-- The files `cover.css`, `dashboard.css` and `signin.css` are published under a Creative Commons license found in [LICENSE-THEMES](./app/LICENSE-THEMES).
+- The files `cover.css`, `dashboard.css` and `signin.css` are published under the Creative Commons license found in [LICENSE-THEMES](./app/LICENSE-THEMES).
 
 - The file `ie10-viewport-bug-workaround.js` is published under the MIT license found in [LICENSE-VIEWPORT-BUG](./app/LICENSE-VIEWPORT-BUG).
