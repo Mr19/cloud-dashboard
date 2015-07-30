@@ -1,6 +1,10 @@
 # cloud-dashboard
 [![Build Status](https://magnum.travis-ci.com/hdmaker/cloud-dashboard-private.svg?token=uMqLb41o3pJzyDkf1Dpg&branch=master)](https://magnum.travis-ci.com/hdmaker/cloud-dashboard-private)
 
+# Author
+
+The author is Arnaud Desclouds <arnaud.software@heig-vd.ch>, that project was developped in the context of a Bachelor thesis.
+
 # Abstract
 
 Cloud Dashboard is a Web application that can manage multiple AWS (Amazon Web Services) accounts simultaneously. Python 3 is used with Django as a Web framework. Cloud Dashboard offers synthetic views showing the various EC2 (Elastic Cloud Compute) resources that a user possesses: AMIs, instances, tags, volumes, etc.
