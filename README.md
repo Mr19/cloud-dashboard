@@ -11,7 +11,7 @@ Browsing between resources' dependencies is extremely easy, and it allows to see
 
 Cloud Dashboard suits perfectly an occasional or frequent AWS's user, it gives them a global view of their accounts and allows them to stay on top of their expenses.
 
-# Build
+# Build locally
 
 You need to have Python 3 and virtualenv installed. 
 
@@ -23,10 +23,11 @@ You also need a PostgreSQL database with the name `cloud_dashboard_database`, a 
 - Install packages: `pip install -r requirements.txt`
 - Launch Redis Queue worker: `./app/manage.py rqworker high`
 - Launch Django server: `./app/manage.py runserver`
+- Open a browser to `http://localhost:8000`
 
-# Heroku
+# Deploy on Heroku
 
-To deploy on Heroku you need an Heroku account an the Heroku toolbelt.
+To deploy on Heroku you need an Heroku account and the Heroku toolbelt.
 
 You need to change `DEVELOPMENT = True` to `DEVELOPMENT = False` in `settings.py`.
 
@@ -40,9 +41,9 @@ You need to change `DEVELOPMENT = True` to `DEVELOPMENT = False` in `settings.py
 
 # Informations
 
-The libraries used in the project are printed in **requirements.txt**.
+The libraries used in the project are printed in `requirements.txt`.
 
-This project uses **Travis CI** as continuous integration service. 
+This project uses Travis CI as continuous integration service. 
 You can see the build status on the badge under the title.
 
 # License
