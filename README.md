@@ -1,5 +1,4 @@
 # cloud-dashboard
-[![Build Status](https://magnum.travis-ci.com/hdmaker/cloud-dashboard-private.svg?token=uMqLb41o3pJzyDkf1Dpg&branch=master)](https://magnum.travis-ci.com/hdmaker/cloud-dashboard-private)
 
 # Author
 
@@ -48,8 +47,6 @@ You need to change `DEVELOPMENT = True` to `DEVELOPMENT = False` in `settings.py
 
 The libraries used in the project are printed in `requirements.txt`.
 
-This project uses Travis CI as continuous integration service. 
-You can see the build status on the badge under the title.
 
 # License
 

@@ -1,8 +1,8 @@
 arrow==0.6.0
 boto==2.38.0
-click==4.1
+click==5.1
 dj-database-url==0.3.0
-Django==1.8.3
+Django==1.8.4
 django-activeurl==0.1.8
 django-appconf==1.0.1
 django-classy-tags==0.6.2
@@ -15,8 +15,8 @@ lxml==3.4.4
 psycopg2==2.6.1
 python-dateutil==2.4.2
 redis==2.10.3
-rq==0.5.4
+rq==0.5.5
 six==1.9.0
-SQLAlchemy==1.0.6
-sqlparse==0.1.15
-whitenoise==2.0.2
+SQLAlchemy==1.0.8
+sqlparse==0.1.16
+whitenoise==2.0.4
