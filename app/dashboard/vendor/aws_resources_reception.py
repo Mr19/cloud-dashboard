@@ -508,7 +508,12 @@ def _get_ec2_platform(instance_platform, ami_name):
     """
     ami_name = ami_name.lower()
     if not instance_platform:
-        return 'linux'
+        if 'rhel' in ami_name:
+            return 'rhel'
+        elif 'sles' in ami_name:
+            return 'sles'
+        else:
+            return 'linux'
     elif instance_platform == 'windows':
         if 'sql' and 'web' in ami_name:
             return 'mswinSQLWeb'

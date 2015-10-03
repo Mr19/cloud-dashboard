@@ -46,6 +46,8 @@ class Ec2Instance(models.Model):
         ('mswin', 'mswin'),
         ('mswinSQL', 'mswinSQL'),
         ('mswinSQLWeb', 'mswinSQLWeb'),
+        ('rhel', 'rhel'),
+        ('sles', 'sles'),
         ('windows-unknown', 'windows-unknown')
     )
     ec2_platform = models.CharField(max_length=255, choices=EC2_PLATFORMS)

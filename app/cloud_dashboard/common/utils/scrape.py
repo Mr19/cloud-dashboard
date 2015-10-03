@@ -141,14 +141,17 @@ def _rindex_family(inst2family, details):
 def scrape_families():
     inst2family = dict()
     tree = etree.parse(urllib.request.urlopen("http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html"), etree.HTMLParser())
-    details = tree.xpath('//table')[3]
+    details = tree.xpath('//div[@class="informaltable"]//table')[0]
     hdrs = details.xpath('thead/tr')[0]
     if totext(hdrs[0]).lower() == 'instance family' and 'current generation' in totext(hdrs[1]).lower():
        _rindex_family(inst2family, details)
-    details = tree.xpath('//table')[4]
+
+    details = tree.xpath('//div[@class="informaltable"]//table')[1]
     hdrs = details.xpath('thead/tr')[0]
     if totext(hdrs[0]).lower() == 'instance family' and 'previous generation' in totext(hdrs[1]).lower():
        _rindex_family(inst2family, details)
+
+    assert len(inst2family) > 0, "Failed to find instance family info"
     return inst2family
 
 
@@ -217,7 +220,7 @@ def add_pricing_info(instances):
         i.pricing = {}
     by_type = {i.instance_type: i for i in instances}
 
-    for platform in ['linux', 'mswin', 'mswinSQL', 'mswinSQLWeb']:
+    for platform in ['linux', 'mswin', 'mswinSQL', 'mswinSQLWeb', 'rhel', 'sles']:
         # current generation
         pricing_url = 'http://a0.awsstatic.com/pricing/1/ec2/%s-od.min.js' % (platform,)
         jsonp_string = urllib.request.urlopen(pricing_url).read().decode()
