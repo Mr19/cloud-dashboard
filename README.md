@@ -26,6 +26,7 @@ You also need a PostgreSQL database with the name `cloud_dashboard_database`, a 
 - Activate it: `source venv/bin/activate`
 - Install packages: `pip install -r requirements.txt`
 - Launch Redis Queue worker: `./app/manage.py rqworker high`
+- Execute Django migrations `./app/manage.py migrate`
 - Launch Django server: `./app/manage.py runserver`
 - Open a browser to `http://localhost:8000`
 
