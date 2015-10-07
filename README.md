@@ -13,7 +13,7 @@
 
 # Author
 
-The author is Arnaud Desclouds <arnaud.software@use.startmail.com>, that project was developed in the context of a Bachelor thesis.
+The author is Arnaud Desclouds <arnaud.software@use.startmail.com>, this project was developed in the context of a Bachelor thesis.
 
 # Abstract
 
@@ -26,6 +26,8 @@ Browsing between resources' dependencies is extremely easy, and it allows to see
 Cloud Dashboard suits perfectly an occasional or frequent AWS's user, it gives them a global view of their accounts and allows them to stay on top of their expenses.
 
 # Details
+
+Cloud Dashboard uses **Python 3**, **Django**, **PostgreSQL** and **RQ (Redis Queue)**.
 
 Improves AWS mainly on four points:
 
