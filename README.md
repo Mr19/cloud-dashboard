@@ -1,8 +1,19 @@
-# cloud-dashboard
+# Cloud Dashboard
+
+## Table of contents
+
+- [Author](#author)
+- [Abstract](#abstract)
+- [Details](#details)
+- [Screenshots](#screenshots)
+- [Build](#build)
+- [Known limitations](#known-limitations)
+- [Information](#information)
+- [License](#license)
 
 # Author
 
-The author is Arnaud Desclouds <arnaud.software@use.startmail.com>, that project was developped in the context of a Bachelor thesis.
+The author is Arnaud Desclouds <arnaud.software@use.startmail.com>, that project was developed in the context of a Bachelor thesis.
 
 # Abstract
 
@@ -14,7 +25,37 @@ Browsing between resources' dependencies is extremely easy, and it allows to see
 
 Cloud Dashboard suits perfectly an occasional or frequent AWS's user, it gives them a global view of their accounts and allows them to stay on top of their expenses.
 
-# Build locally
+# Details
+
+Improves AWS mainly on four points:
+
+1. Introduces simultaneous AWS accounts management
+2. Displays instances' prices based on their operating system, region and type
+3. Gives hourly/daily/monthly costs' estimates about each AWS account
+4. Allows efficient resources' dependencies browsing
+
+# Screenshots
+
+[Home page](./screenshots/home.png)
+
+[Sign Up](./screenshots/sign-up.png)
+
+[Login](./screenshots/login.png)
+
+[AWS accounts](./screenshots/aws-accounts.png)
+
+[AMIs](./screenshots/ec2-amis.png)
+
+[Elastic IPs](./screenshots/ec2-elastic-ips.png)
+
+[Instances](./screenshots/ec2-instances.png)
+
+[Volumes](./screenshots/ec2-volumes.png)
+ 
+
+# Build
+
+## Build locally
 
 You need to have Python 3 and virtualenv installed. 
 
@@ -29,9 +70,9 @@ You also need a PostgreSQL database with the name `cloud_dashboard_database`, a 
 - Launch Django server: `./app/manage.py runserver`
 - Open a browser to `http://localhost:8000`
 
-# Deploy on Heroku
+## Deploy to Heroku
 
-To deploy on Heroku you need an Heroku account and the Heroku toolbelt.
+To deploy to Heroku you need an Heroku account and the Heroku toolbelt.
 
 You need to change `DEVELOPMENT = True` to `DEVELOPMENT = False` in `settings.py`.
 
@@ -43,7 +84,21 @@ You need to change `DEVELOPMENT = True` to `DEVELOPMENT = False` in `settings.py
 -  Migrate schemas: `heroku run python app/manage.py migrate`
 -  Open browser to the created app: `heroku open`
 
-# Informations
+# Known limitations
+
+## Load Balancers have no tags 
+Load Balancers have no tags because of Boto's bug [#2549](https://github.com/boto/boto/issues/2549)
+
+## AMIs having only an ID and no other metadata
+It happens because sometimes AWS voluntarily gives us only the ID of an AMI, often the case for old Microsoft Windows AMIs that may or may not be still available for new instances. 
+
+## Shared AWS accounts' names
+Shared AWS accounts, limitation of Cloud Dashboard domain model that allows only one name for an AWS account.
+
+## AWS accounts accessed with different IAM permissions 
+A resource (be it an instance, a volume, etc.) can only belong to one AWS account, there's a problem if an AWS account is shared between multiple users with different IAM permissions on it, what will happen is that the owner of the resources of the AWS account will be the one that has updated the resources last, it can change indefinitely as users update resources. It's a limitation of the domain model.
+
+# Information
 
 The libraries used in the project are printed in `requirements.txt`.
 
