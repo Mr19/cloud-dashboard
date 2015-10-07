@@ -36,21 +36,17 @@ Improves AWS mainly on four points:
 
 # Screenshots
 
-[Home page](./screenshots/home.png)
+![Home page](./screenshots/home.png)
 
-[Sign Up](./screenshots/sign-up.png)
+![AWS accounts](./screenshots/aws-accounts.png)
 
-[Login](./screenshots/login.png)
+![AMIs](./screenshots/ec2-amis.png)
 
-[AWS accounts](./screenshots/aws-accounts.png)
+![Elastic IPs](./screenshots/ec2-elastic-ips.png)
 
-[AMIs](./screenshots/ec2-amis.png)
+![Instances](./screenshots/ec2-instances.png)
 
-[Elastic IPs](./screenshots/ec2-elastic-ips.png)
-
-[Instances](./screenshots/ec2-instances.png)
-
-[Volumes](./screenshots/ec2-volumes.png)
+![Volumes](./screenshots/ec2-volumes.png)
  
 
 # Build
