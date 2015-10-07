@@ -1,4 +1,5 @@
 # Cloud Dashboard
+[![Requirements Status](https://requires.io/github/hdmaker/cloud-dashboard/requirements.svg?branch=master)](https://requires.io/github/hdmaker/cloud-dashboard/requirements/?branch=master)
 
 ## Table of contents
 
