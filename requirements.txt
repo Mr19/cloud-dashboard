@@ -14,7 +14,7 @@ gunicorn==19.3.0
 lxml==3.4.4
 psycopg2==2.6.1
 python-dateutil==2.4.2
-redis==2.10.3
+redis==2.10.5
 rq==0.5.6
 six==1.10.0
 SQLAlchemy==1.0.9
