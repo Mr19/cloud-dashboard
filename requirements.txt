@@ -2,7 +2,7 @@ arrow==0.7.0
 boto==2.38.0
 click==5.1
 dj-database-url==0.3.0
-Django==1.8.5
+Django==1.8.6
 django-activeurl==0.1.9
 django-appconf==1.0.1
 django-classy-tags==0.6.2
