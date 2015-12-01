@@ -1,6 +1,5 @@
 # Cloud Dashboard
 [![Build Status](https://travis-ci.org/hdmaker/cloud-dashboard.svg?branch=master)](https://travis-ci.org/hdmaker/cloud-dashboard)
-[![Requirements Status](https://requires.io/github/hdmaker/cloud-dashboard/requirements.svg?branch=master)](https://requires.io/github/hdmaker/cloud-dashboard/requirements/?branch=master)
 
 ## Table of contents
 
